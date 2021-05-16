@@ -8,7 +8,6 @@ CMD [ "./target/release/packetcrypt", "ann", "http://pool.pkteer.com", "--paymen
 ```
 You can also choose a different pool. Different pools may give you better mining performance. The URL's for the pools were acquired from the [PKT Website](https://docs.pkt.cash/en/latest/mining/)
 ```
-
     Pkteer: http://pool.pkteer.com
     PKTPool: http://pool.pktpool.io
     PktWorld: http://pool.pkt.world
@@ -16,3 +15,8 @@ You can also choose a different pool. Different pools may give you better mining
     Srizbi: http://pool.srizbi.com
 ```
 Do not use the image that was pushed to the Chandra Station Docker Hub account as it was built with my wallet address.
+
+Instructions on setting up your own PKT wallet can be found on the [PKT Website](https://docs.pkt.cash/en/latest/pktd/pktwallet/) I used the CLI wallet.
+
+## Future Improvments 
+Logging in order to see if your miner is efficient and if you are rejecting block rewards.
