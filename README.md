@@ -16,6 +16,8 @@ You can also choose a different pool. Different pools may give you better mining
 ```
 Do not use the image that was pushed to the Chandra Station Docker Hub account as it was built with my wallet address.
 
+## PKT Wallet
+
 Instructions on setting up your own PKT wallet can be found on the [PKT Website](https://docs.pkt.cash/en/latest/pktd/pktwallet/) I used the CLI wallet.
 
 ## Future Improvments 
