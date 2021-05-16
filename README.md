@@ -18,7 +18,7 @@ Do not use the image that was pushed to the Chandra Station Docker Hub account a
 
 ## PKT Wallet
 
-Instructions on setting up your own PKT wallet can be found on the [PKT Website](https://docs.pkt.cash/en/latest/pktd/pktwallet/) I used the CLI wallet.
+Instructions on setting up your own PKT wallet can be found on the [PKT Website](https://docs.pkt.cash/en/latest/pktd/pktwallet/). I used the CLI wallet.
 
 ## Future Improvments 
 Logging in order to see if your miner is efficient and if you are rejecting block rewards.
