@@ -1,7 +1,7 @@
 version: "2.0"
 services:
   main:
-    image: 
+    image: chandrastation/pkt_on_akash
     env:
       - PAYMENT_ADDR=your-address-here
       - POOL1=http://pool.pkt.world
