@@ -1,0 +1,43 @@
+version: "2.0"
+services:
+  main:
+    image: 
+    env:
+      - PAYMENT_ADDR=your-address-here
+      - POOL1=http://pool.pkt.world
+      - POOL2=http://pool.pktpool.io
+      - POOL3=http://pool.pkteer.com
+      - POOL4=http://pool.srizbi.com
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+
+profiles:
+  compute:
+    miner:
+      resources:
+        cpu:
+          units: 10
+        memory:
+          size: 512Mi
+        storage:
+          size: 512Mi
+  placement:
+    any:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        miner:
+          denom: uakt
+          amount: 1000
+
+deployment:
+  main:
+    any:
+      profile: miner
+      count: 1
