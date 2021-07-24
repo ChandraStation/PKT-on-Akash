@@ -9,8 +9,7 @@ services:
       - POOL3=http://pool.pkteer.com
       - POOL4=http://pool.srizbi.com
     expose:
-      - port: 3000
-        as: 80
+      - port: 80
         to:
           - global: true
 
