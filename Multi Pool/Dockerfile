@@ -1,4 +1,4 @@
-FROM rust:latest
+FROM rust:latest AS builder
 
 RUN apt-get update
 
@@ -23,6 +23,12 @@ RUN git clone https://github.com/cjdelisle/packetcrypt_rs --branch develop
 WORKDIR packetcrypt_rs
 
 RUN cargo build --release
+
+FROM debian:buster
+
+WORKDIR /
+
+COPY --from=builder /packetcrypt_rs/target/release/packetcrypt .
 
 COPY run.sh .
 
