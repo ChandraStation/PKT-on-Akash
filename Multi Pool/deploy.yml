@@ -4,10 +4,6 @@ services:
     image: chandrastation/pkt_on_akash
     env:
       - PAYMENT_ADDR=your-address-here
-      - POOL1=http://pool.pkt.world
-      - POOL2=http://pool.pktpool.io
-      - POOL3=http://pool.pkteer.com
-      - POOL4=http://pool.srizbi.com
     expose:
       - port: 80
         to:
