@@ -5,7 +5,8 @@ services:
     env:
       - PAYMENT_ADDR=your-address-here
     expose:
-      - port: 80
+      - port: 3000
+        as: 80
         to:
           - global: true
 
