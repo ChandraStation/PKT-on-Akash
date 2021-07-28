@@ -1,4 +1,4 @@
-# pkt_ann_miner_on_akash
+# PKT ANN Miner On Akash
 Deploy a PKT Cash announcment miner on the Akash Network 
 
 ## Dockerfile
