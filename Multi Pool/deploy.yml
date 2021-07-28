@@ -3,7 +3,11 @@ services:
   main:
     image: chandrastation/pkt_on_akash
     env:
-      - PAYMENT_ADDR=your-address-here
+      - WALLET_ADDR=your-address-here
+      - POOL1=http://pool.srizbi.com
+      - POOL2=http://pool.pktpool.io
+      - POOL3=http://pktco.in
+      - POOL4=http://pool.pkt.world
     expose:
       - port: 3000
         as: 80
