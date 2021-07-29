@@ -5,10 +5,10 @@ services:
     env:
       - WALLET_ADDR=your-address-here
 # Pool order can be changed based off mining efficiency https://docs.pkt.cash/en/latest/mining/#choosing-a-mining-pool
-      - POOL1=http://pool.srizbi.com
+      - POOL1=http://pool.pkteer.com
       - POOL2=http://pool.pktpool.io
-      - POOL3=http://pktco.in
-      - POOL4=http://pool.pkt.world
+      - POOL3=http://pool.pkt.world
+      - POOL4=http://pool.srizbi.com
     expose:
       - port: 3000
         as: 80
