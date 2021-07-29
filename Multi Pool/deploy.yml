@@ -22,9 +22,9 @@ profiles:
         cpu:
           units: 10
         memory:
-          size: 512Mi
+          size: 4Gi
         storage:
-          size: 512Mi
+          size: 8Gi
   placement:
     any:
       attributes:
