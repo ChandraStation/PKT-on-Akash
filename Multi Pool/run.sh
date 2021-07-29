@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ -z "$PAYMENT_ADDR" ]; then
-  echo "PAYMENT_ADDR not defined"
+if [ -z "$WALLET_ADDR" ]; then
+  echo "WALLET_ADDR not defined"
   exit 1
 fi
 
