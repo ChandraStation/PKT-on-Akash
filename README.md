@@ -50,6 +50,7 @@ NOTE: Every time you use getnewaddress, the address you receive must be remember
 Congrats you now have a PKT wallet address and we can move onto step 2.
 
 ## Step 2: Create your SDL file and deploy it to Akash
+
 Here is an example SDL file you can use for your deployment. 
 
 ```
@@ -96,8 +97,10 @@ deployment:
       profile: miner
       count: 1
 ```
-Announcement miners depend solely on internet connection and CPU processing power. In order to simplify the process multiple Deployment tools have been created. I highly recommend readers of this guide utilize them. Akashlytics Deploy Tool (Maxime Beauchamp)or Akash Deploy Tool (Tom Beynon) Both are great tools! The Akashlytics deploy tool is a bit simpler to use but is currently not available for MacOS and does not have a logging feature whereas the tool developed by Tom Beynon has both aforementioned features. If you prefer to use CLI continue reading!
----
+Announcement miners depend solely on internet connection and CPU processing power. In order to simplify the process multiple Deployment tools have been created. I highly recommend readers of this guide utilize them. Akashlytics Deploy Tool (Maxime Beauchamp)or Akash Deploy Tool (Tom Beynon) Both are great tools! The Akashlytics deploy tool is a bit simpler to use but is currently not available for MacOS and does not have a logging feature whereas the tool developed by Tom Beynon has both aforementioned features. 
+
+## If you prefer to use CLI continue reading!
+
 Copy the contents of the pkt miner SDL file and save it to a new file named miner.yml.
 akash tx deployment create miner.yml --from <your_wallet_name> --node http://rpc.akash.forbole.com:80 --chain-id akashnet-2 --fees 5000uakt -y
 After that command a string of JSON will appear in your terminal/command prompt.
