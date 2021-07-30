@@ -48,7 +48,8 @@ while pktwallet is running in the background (in another terminal window), use t
 You should see a series of numbers and letters beginning with pkt1, this is your address which you can use for receiving coins.
 NOTE: Every time you use getnewaddress, the address you receive must be remembered by pktwallet forever so only use it when you actually need an address.
 Congrats you now have a PKT wallet address and we can move onto step 2.
-Step 2: Create your SDL file and deploy it to Akash
+
+## Step 2: Create your SDL file and deploy it to Akash
 Here is an example SDL file you can use for your deployment. 
 
 ```
