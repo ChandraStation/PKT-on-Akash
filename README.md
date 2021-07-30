@@ -11,7 +11,7 @@ This guide will show you how to deploy a PKT announcement miner on the Akash Net
 1. Create your SDL file and deploy it to Akash
 
 
-##Step 1: Creating your wallet
+## Step 1: Creating your wallet
 
 There are 3 options to create a PKT wallet. A Command Line wallet and the GUI wallet are the only wallets that support mining. The GUI wallet is only available on MacOS. This guide will assume you are setting up a wallet via Command Line. If using the GUI wallet don't worry all we need is a wallet address to mine too. 
 Microsoft Windows
