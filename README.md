@@ -98,7 +98,7 @@ deployment:
       profile: miner
       count: 1
 ```
-_Announcement miners depend solely on internet connection and CPU processing power. In order to simplify the process multiple Deployment tools have been created. I highly recommend readers of this guide utilize them. Akashlytics Deploy Tool (Maxime Beauchamp)or Akash Deploy Tool (Tom Beynon) Both are great tools! The Akashlytics deploy tool is a bit simpler to use but is currently not available for MacOS and does not have a logging feature whereas the tool developed by Tom Beynon has both aforementioned features. 
+_Announcement miners depend solely on internet connection and CPU processing power. In order to simplify the process multiple Deployment tools have been created. I highly recommend readers of this guide utilize them. Akashlytics Deploy Tool (Maxime Beauchamp)or Akash Deploy Tool (Tom Beynon) Both are great tools! The Akashlytics deploy tool is a bit simpler to use but is currently not available for MacOS and does not have a logging feature whereas the tool developed by Tom Beynon has both aforementioned features._
 
 ## If you prefer to use CLI continue reading!
 
