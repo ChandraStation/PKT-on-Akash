@@ -1,4 +1,5 @@
-#PKT on Akash
+PKT on Akash
+=============
 Learn how to deploy a PKT announcement miner on the Akash Network
 PKT is a blockchain enabling anyone to become an ISP. Users allocate bandwidth from their local internet connections and build a global, decentralized edge network, by the people, for the people. - https://pkt.cash
 
