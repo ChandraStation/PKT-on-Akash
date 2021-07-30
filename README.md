@@ -41,16 +41,18 @@ pktd AUR package (Arch linux or Manjaro),
 
 Creating a wallet
 To create a new PKT wallet, use the pktwallet - create command:
-./bin/pktwallet --create
+`./bin/pktwallet --create`
 You will be prompted to follow a few steps, make sure you write your seed words on paper so that you can recover your funds even if your computer is damaged.
 Creating a new PKT address
 while pktwallet is running in the background (in another terminal window), use the following command:
-./bin/pktctl --wallet getnewaddress
-You should see an a series of numbers and letters beginning with pkt1, this is your address which you can use for receiving coins.
+`./bin/pktctl --wallet getnewaddress`
+You should see a series of numbers and letters beginning with pkt1, this is your address which you can use for receiving coins.
 NOTE: Every time you use getnewaddress, the address you receive must be remembered by pktwallet forever so only use it when you actually need an address.
 Congrats you now have a PKT wallet address and we can move onto step 2.
-Step 3: Create your SDL file and deploy it to Akash
+Step 2: Create your SDL file and deploy it to Akash
 Here is an example SDL file you can use for your deployment. 
+
+```
 version: "2.0"
 services:
   main:
@@ -93,29 +95,32 @@ deployment:
     any:
       profile: miner
       count: 1
+```
 Announcement miners depend solely on internet connection and CPU processing power. In order to simplify the process multiple Deployment tools have been created. I highly recommend readers of this guide utilize them. Akashlytics Deploy Tool (Maxime Beauchamp)or Akash Deploy Tool (Tom Beynon) Both are great tools! The Akashlytics deploy tool is a bit simpler to use but is currently not available for MacOS and does not have a logging feature whereas the tool developed by Tom Beynon has both aforementioned features. If you prefer to use CLI continue reading!
-
 ---
-
 Copy the contents of the pkt miner SDL file and save it to a new file named miner.yml.
 akash tx deployment create miner.yml --from <your_wallet_name> --node http://rpc.akash.forbole.com:80 --chain-id akashnet-2 --fees 5000uakt -y
 After that command a string of JSON will appear in your terminal/command prompt.
+```
 {"height":"1696542","txhash":"AF360662F5EF02E22C2FC7CDD1975164FC04651C8B911144FB9B15F06AEFE90C","codespace":"","code":0,"data":"0A130A116372656174652D6465706C6F796D656E74","raw_log":"[{\"events\":[{\"type\":\"akash.v1\",\"attributes\":[{\"key\":\"module\",\"value\":\"deployment\"},{\"key\":\"action\",\"value\":\"deployment-created\"},{\"key\":\"version\",\"value\":\"629fe5d9f40da5a3882b3e9d0ec3ad50d31bc6491f84807987196eed2f87a549\"},{\"key\":\"owner\",\"value\":\"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we\"},{\"key\":\"dseq\",\"value\":\"1696540\"},{\"key\":\"module\",\"value\":\"market\"},{\"key\":\"action\",\"value\":\"order-created\"},{\"key\":\"owner\",\"value\":\"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we\"},{\"key\":\"dseq\",\"value\":\"1696540\"},{\"key\":\"gseq\",\"value\":\"1\"},{\"key\":\"oseq\",\"value\":\"1\"}]},{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"create-deployment\"},{\"key\":\"sender\",\"value\":\"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we\"},{\"key\":\"sender\",\"value\":\"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we\"}]},{\"type\":\"transfer\",\"attributes\":[{\"key\":\"recipient\",\"value\":\"akash17xpfvakm2amg962yls6f84z3kell8c5lazw8j8\"},{\"key\":\"sender\",\"value\":\"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we\"},{\"key\":\"amount\",\"value\":\"5000uakt\"},{\"key\":\"recipient\",\"value\":\"akash14pphss726thpwws3yc458hggufynm9x77l4l2u\"},{\"key\":\"sender\",\"value\":\"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we\"},{\"key\":\"amount\",\"value\":\"5000000uakt\"}]}]}]","logs":[{"msg_index":0,"log":"","events":[{"type":"akash.v1","attributes":[{"key":"module","value":"deployment"},{"key":"action","value":"deployment-created"},{"key":"version","value":"629fe5d9f40da5a3882b3e9d0ec3ad50d31bc6491f84807987196eed2f87a549"},{"key":"owner","value":"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we"},{"key":"dseq","value":"1696540"},{"key":"module","value":"market"},{"key":"action","value":"order-created"},{"key":"owner","value":"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we"},{"key":"dseq","value":"1696540"},{"key":"gseq","value":"1"},{"key":"oseq","value":"1"}]},{"type":"message","attributes":[{"key":"action","value":"create-deployment"},{"key":"sender","value":"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we"},{"key":"sender","value":"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we"}]},{"type":"transfer","attributes":[{"key":"recipient","value":"akash17xpfvakm2amg962yls6f84z3kell8c5lazw8j8"},{"key":"sender","value":"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we"},{"key":"amount","value":"5000uakt"},{"key":"recipient","value":"akash14pphss726thpwws3yc458hggufynm9x77l4l2u"},{"key":"sender","value":"akash10a670qvazh3qa6xdvclc4jtrdjrnwm392x66we"},{"key":"amount","value":"5000000uakt"}]}]}],"info":"","gas_wanted":"200000","gas_used":"94750","tx":null,"timestamp":""}
+```
 Take not of your DSEQ it will be used in the following commands.
 {"key":"dseq","value":"1696540"}
+
 Next, run
-akash query deployment get --owner <your_akash_wallet_address> --node=tcp://135.181.60.250:26657 --dseq <your_dseq>
+`akash query deployment get --owner <your_akash_wallet_address> --node=tcp://135.181.60.250:26657 --dseq <your_dseq>`
 Create a market order.
-akash query market order get --node=http://rpc.akash.forbole.com:80 --owner <your_akash_wallet> --dseq <your_dseq> --oseq 1 --gseq 1
+`akash query market order get --node=http://rpc.akash.forbole.com:80 --owner <your_akash_wallet> --dseq <your_dseq> --oseq 1 --gseq 1`
 Acquire a list of bids.
-akash query market bid list --owner=<your_wallet_address> --node=http://rpc.akash.forbole.com:80 --dseq <your_dseq>
+`akash query market bid list --owner=<your_wallet_address> --node=http://rpc.akash.forbole.com:80 --dseq <your_dseq>`
 Select a bid from a provider.
-akash tx market lease create --chain-id akashnet-2 --node=tcp://135.181.60.250:26657 --owner <your_wallet_address> --dseq <your_dseq> --gseq 1 --oseq 1 --provider <select_a_provider_from_the_list> --from <your_wallet_name> --fees 5000uakt
+`akash tx market lease create --chain-id akashnet-2 --node=tcp://135.181.60.250:26657 --owner <your_wallet_address> --dseq <your_dseq> --gseq 1 --oseq 1 --provider <select_a_provider_from_the_list> --from <your_wallet_name> --fees 5000uakt`
 Confirm your lease is open.
-akash query market lease list --owner <your_wallet_address> --node=tcp://135.181.60.250:26657 --dseq <your_dseq>
+`akash query market lease list --owner <your_wallet_address> --node=tcp://135.181.60.250:26657 --dseq <your_dseq>`
 Send the manifest.
-akash provider send-manifest miner.yml --node=tcp://135.181.60.250:26657 --dseq <your_dseq> --provider <the_provider_you_selected> --home ~/.akash --from <your_wallet_address>
+`akash provider send-manifest miner.yml --node=tcp://135.181.60.250:26657 --dseq <your_dseq> --provider <the_provider_you_selected> --home ~/.akash --from <your_wallet_address>`
 Ensure the miner is running.
-akash provider lease-logs --node=tcp://135.181.60.250:26657  --dseq <your_dseq> --gseq 1 --oseq 1 --provider <the_provider_you_selected> --from <your_wallet_address>
+`akash provider lease-logs --node=tcp://135.181.60.250:26657  --dseq <your_dseq> --gseq 1 --oseq 1 --provider <the_provider_you_selected> --from <your_wallet_address>`
 Another great way too see how much PKT you are mining is by visiting the block explorer and inputting your PKT wallet address. 
+---
 That's it! You should now be mining yourself some PKT. If you have any questions or need assistance with your deployment I recommend you join the Chandra Station Discord chat and ping me @Chalabi in the Akash support text channel!
