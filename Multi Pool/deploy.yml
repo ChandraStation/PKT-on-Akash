@@ -4,7 +4,6 @@ services:
     image: chandrastation/pkt_on_akash
     env:
       - WALLET_ADDR=your-address-here
-# Pool order can be changed based off mining efficiency https://docs.pkt.cash/en/latest/mining/#choosing-a-mining-pool
       - POOL1=http://pool.pkteer.com
       - POOL2=http://pool.pktpool.io
       - POOL3=http://pool.pkt.world
